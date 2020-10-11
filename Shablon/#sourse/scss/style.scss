@@ -1,130 +1,119 @@
-// <МИКСИНЫ>
-@mixin cnt($h){display:flex;flex-direction: column;height:$h;text-align:center;align-items: stretch;justify-content: center;}
-@mixin tr($x,$y,$z){transform:translate3d($x, $y, $z);}
-@mixin flexbox(){display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: - webkit-flex;display:flex;font-size: 0;}
-@mixin flexorder($val){-webkit-box-ordinal-group: $val;-moz-box-ordinal-group: $val;-ms-flex-order: $val;-webkit-order: $val;order: $val;}
+//<МИКСИНЫ>===============================================================================================
+@import "mixins.scss";
+//</МИКСИНЫ>===============================================================================================
 
+//<ШРИФТЫ>===============================================================================================
 
-
-// <МИКСИНЫ>
-
-
-// <ШРИФТЫ>
-
-// <Подключаем Шрифты>	
-
-@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Bebas&display=swap');
+//<Подключаем шрифты>=======================================================================================
+@import url("https://fonts.googleapis.com/css2?family=Bebas&display=swap");
 
 @font-face {
-	font-family: 'AkzidenzGrotesk-BoldCond';
-	src: url('../fonts/AkzidenzGrotesk-BoldCond.eot');
-	src: local('☺'), url('../fonts/AkzidenzGrotesk-BoldCond.woff') format('woff'), url('../fonts/AkzidenzGrotesk-BoldCond.ttf') format('truetype'), url('../fonts/AkzidenzGrotesk-BoldCond.svg') format('svg');
+	font-family: "AkzidenzGrotesk-BoldCond";
+	src: url("../fonts/AkzidenzGrotesk-BoldCond.eot");
+	src: local("☺"), url("../fonts/AkzidenzGrotesk-BoldCond.woff") format("woff"),
+		url("../fonts/AkzidenzGrotesk-BoldCond.ttf") format("truetype"),
+		url("../fonts/AkzidenzGrotesk-BoldCond.svg") format("svg");
 	font-weight: normal;
 	font-style: normal;
 }
 
+//</Подключаем шрифты>=======================================================================================
 
-//font-display: swap;
-// </Подключаем Шрифты>	
+//<Иконочные шрифты>==========================================================================================
 
+//</Иконочные шрифты>==========================================================================================
 
-// <Шрифт по умолчанию>
-$fontfamily: "PT Sans";	
-// </Шрифт по умолчанию>	
+//<Шрифт по умолчанию>==========================================================================================
+$fontfamily: "";
+//</Шрифт по умолчанию>==========================================================================================
 
-// </ШРИФТЫ>
+//</ШРИФТЫ>=======================================================================================================
 
-// <ПЕРЕМЕННЫЕ>
+//<ПЕРЕМЕННЫЕ>===========================================================================================================
 $minwidth: 320px;
-$mw:1170;
-$md1:$mw+12;
-$md2:992.98;
-$md3:767.98;
-$md4:479.98;
+$mw: 1170;
+$md1: $mw + 12;
+$md2: 991.98;
+$md3: 767.98;
+$md4: 479.98;
+//</ПЕРЕМЕННЫЕ>===========================================================================================================
 
-// </ПЕРЕМЕННЫЕ>
-
-// <ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>
-
-*{padding:0;margin:0;border:0;}
-*,*:before,*:after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}
-:focus,:active{outline:none;}
-a:focus,a:active{outline:none;}
-nav,footer,header,aside{display:block}
-html,body{height:100%;margin:0;padding:0;min-width: $minwidth; width:100%;position: relative;color: #000;}
-body{font-size:100%;line-height:1;font-size:14px;font-family: $fontfamily;-ms-text-size-adjust:100%;-moz-text-size-adjust:100%;-webkit-text-size-adjust:100%;
-	&.lock{overflow: hidden;
-		@media (max-width: $md3+px){
-			width: 100%;
-			position: fixed;
-			overflow: hidden;
-		}
+//<ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
+@import "null.scss";
+body {
+	color: #000;
+	font-size: 14px;
+	&.lock {
+		overflow: hidden;
 	}
 }
-input,button,textarea{font-family:$fontfamily;}
-input::-ms-clear{display:none;}
-button{cursor:pointer}
-button::-moz-focus-inner{padding:0;border:0;}
-a,a:visited{text-decoration:none;}
-a:hover{text-decoration:none;}
-ul li{list-style:none;}
-img{vertical-align:top;}
-h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit;}
-//-webkit-overflow-scrolling: touch;
-//animation-play-state: paused !important;
-//</ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>
+//</ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
 
-//<ОБОЛОЧКА>
-.wrapper{width:100%;min-width:100%;overflow: hidden;
-	&.loaded{}
+//<ОБОЛОЧКА>===========================================================================================================
+.wrapper {
+	width: 100%;
+	min-height: 100%;
+	overflow: hidden;
+	&.loaded {
 	}
-//</ОБОЛОЧКА>
-
-//<ОСНОВНАЯ СЕТКА>
-.container{max-width: $mw+px;margin: 0 auto; width:100%;
-	@media (max-width:$md1+px){max-width: 970px;}
-	@media (max-width:$md2+px){max-width: 750px;}
-	@media (max-width:$md3+px){max-width: none; padding:0 10px;}
 }
-//</ОСНОВНАЯ СЕТКА>
+//</ОБОЛОЧКА>===========================================================================================================
 
-//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>
-//@import "datepicker.sccs";
-//@import "popover.min.sccs";
-//@import "baguetteBox.sccs";
-//@import "padding.sccs";
-@import "header.scss";
-@import "footer.scss";
-//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>
-
-
-// Шаблоны	
-%Bebas{
-	font-family: 'Bebas', sans-serif;
-	font-weight: 400;
-	font-style: normal;
+//<ОСНОВНАЯ СЕТКА>===========================================================================================================
+.container {
+	max-width: $mw + px;
+	margin: 0 auto;
+	width: 100%;
+	@media (max-width: $md1+px) {
+		max-width: 970px;
+	}
+	@media (max-width: $md2+px) {
+		max-width: 750px;
+	}
+	@media (max-width: $md3+px) {
+		max-width: none;
+		padding: 0 10px;
+	}
 }
-%PTSans{
-	font-family: 'PT Sans', sans-serif;
-	font-weight: 400;
-	font-style: normal;
-}
-%Akzi{
-	font-family: 'AkzidenzGrotesk-BoldCond';
-	font-weight: 400;
-	font-style: normal;
-}
+//</ОСНОВНАЯ СЕТКА>===========================================================================================================
 
-//<ОСНОВНОЙ БЛОК>
-
-//==============================
-
-//</ОСНОВНОЙ БЛОК>
-
-//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>
+//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>====================================================================================================
 @import "forms.scss";
 @import "ui.scss";
+//</ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>====================================================================================================
 
-//</ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>
+//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
+//@import "../../js/fancybox/jquery.fancybox.scss";
+//@import "datepicker.scss";
+//@import "fontawesome.scss";
+//@import "popover.min.scss";
+//@import "baguetteBox.scss";
+//@import "pagging.scss";
+//@import "icons.scss";
+@import "popup.scss";
+@import "header.scss";
+@import "footer.scss";
+@import "home.scss";
+//</ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
+
+//<ОСНОВНОЙ БЛОК>====================================================================================================
+// Шаблоны
+%Bebas {
+	font-family: "Bebas", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+}
+%PTSans {
+	font-family: "PT Sans", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+}
+%Akzi {
+	font-family: "AkzidenzGrotesk-BoldCond";
+	font-weight: 400;
+	font-style: normal;
+}
+
+//====================================================================================================
+
+//</ОСНОВНОЙ БЛОК>====================================================================================================
