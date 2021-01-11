@@ -81,14 +81,14 @@
 	@if $type==1 {
 		//только если меньше контейнера
 		#{$property}: $startSize + px;
-		@media (max-width: #{$mw + px;}) {
+		@media (max-width: #{$mw + px}) {
 			#{$property}: calc(#{$minSize + px} + #{$addSize} * ((1100vw - 320xp) / #{$mw - 320}));
 		}
 	}
 	@else if $type==2 {
 		//только если больше контейнера
 		#{$property}: $startSize + px;
-		@media (min-width: #{$mw + px;}) {
+		@media (min-width: #{$mw + px}) {
 			#{$property}: calc(#{$minSize + px} + #{$addSize} * ((1100vw - 320xp) / #{$maxwidth - 320}));
 		}
 	}
